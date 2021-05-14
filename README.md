@@ -1,0 +1,2 @@
+# refrigeratormonitoring-obniz
+obnizで冷蔵庫を管理するプロダクト
