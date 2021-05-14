@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/inoue2002/refrigeratormonitoring-obniz#readme",
   "dependencies": {
+    "dotenv": "^9.0.2",
     "obniz": "^3.15.1"
   }
 }
