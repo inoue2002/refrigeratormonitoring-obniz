@@ -142,6 +142,28 @@ async function messageFunc(event) {
   } else if (headerMes.length === 2) {
     if (headerMes[0] === "追加")
       message = { type: "text", text: `${headerMes[1]}を追加しました` };
+    // notionに追加しにいく
+    await notion.request({
+      path: "pages",
+      method: "POST",
+      body: {
+        parent: { database_id: "c98d166221914e1a92f4e7a90761c0da" },
+        properties: {
+          item: {
+            title: [
+              {
+                text: {
+                  content: headerMes[1],
+                },
+              },
+            ],
+          },
+          want: {
+            checkbox: true,
+          },
+        },
+      },
+    });
   } else {
     message = {
       type: "text",
@@ -155,7 +177,6 @@ const postbackFunc = async function (event) {
   message = { type: "text", text: "ポストバックイベント" };
   const headerData = event.postback.data.split("/");
   message = { type: "text", text: `${headerData[0]}の購入を保存しました！` };
-  //wantをfalseに切り替える
   const request_payload = {
     path: "pages/" + headerData[1],
     method: "patch",
