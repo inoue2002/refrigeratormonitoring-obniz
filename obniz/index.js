@@ -52,9 +52,9 @@ obniz.onconnect = async () => {
       console.log(`${hour}時間${min}分${sec}秒開いていた`);
       //totalTimeをAPIに送る
       axios.post(process.env.API_URL + "/register", {
-        totalTime: totalTime,
+        totalTime: Math.floor(totalTime),
       });
     }
-    await obniz.wait(50);
+    await obniz.wait(100);
   }
 };
