@@ -9,6 +9,7 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "@line/liff": "^2.9.1",
     "nuxt": "^2.14.0"
   },
   "devDependencies": {
